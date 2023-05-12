@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * favtorial - Returns the factorial of a number
+ * factorial - Returns the factorial of a number
  * @n: number to return the factorial from
  *
  * Return: factorial of n
  */
-int factorial(int n);
+int factorial(int n)
 {
 	if (n < 0)
 		return (-1);
