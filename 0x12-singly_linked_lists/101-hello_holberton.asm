@@ -1,3 +1,4 @@
+
 data:
 	format db "Hello Holberton",10,0
 
