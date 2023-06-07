@@ -30,7 +30,7 @@ size_t looped_listint_len(const listint_t *head)
 				red = red->next;
 				yellow = yellow->next;
 			}
-			red = red->next
+			red = red->next;
 			while (red != yellow)
 			{
 				num_nodes++;
@@ -55,7 +55,7 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t num_nodes, index = 0;
+	size_t num_nodes = 0;
 
 	num_nodes = looped_listint_len(head);
 
@@ -65,7 +65,7 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		num_nodes++;
 	}
-	if (nodes > 0)
+	if (num_nodes > 0)
 		printf("-> [%p] %d\n", (void *)head, head->n);
 	return (num_nodes);
 }
