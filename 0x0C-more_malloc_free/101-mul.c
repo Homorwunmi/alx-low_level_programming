@@ -21,7 +21,7 @@ void _is_zero(char *argv[])
 		}
 
 	for (i = 0; argv[2][i]; i++)
-		if (argv[2][i] != '0')
+		if (argv[2][i] != '\0')
 		{
 			isn2 = 0;
 			break;
