@@ -47,7 +47,7 @@ char *_initialize_array(char *ar, int lar)
 
 	for (i = 0; i < lar; i++)
 		ar[i] = '0';
-	ar[lar - 1] = '\0';
+	ar[lar] = '\0';
 	return (ar);
 }
 
