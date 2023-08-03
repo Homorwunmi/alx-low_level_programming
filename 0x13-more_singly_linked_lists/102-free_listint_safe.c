@@ -9,30 +9,44 @@
 size_t free_listint_safe(listint_t **h)
 {
 	size_t len = 0;
-	int line;
-	listint_t *temp;
+	listint_t *loop_start = find_listint_loop(*h);
 
 	if (!h || !*h)
 		return (0);
 
-	while (*h)
+	if (!loop_start)
 	{
-		line = *h - (*h)->next;
-		if (line > 0)
+		while (*h)
 		{
-			temp = (*h)->next;
+			listint_t *temp = (*h)->next;
+
 			free(*h);
 			*h = temp;
 			len++;
 		}
-		else
+	}
+	else
+	{
+		listint_t *node = *h;
+		listint_t *temp;
+
+		while (node != loop_start)
 		{
-			free(*h);
-			*h = NULL;
+			temp = node->next;
+			free(node);
+			node = temp;
 			len++;
-			break;
+		}
+
+		while (node)
+		{
+			temp = node->next;
+			free(node);
+			node = temp;
+			len++
 		}
 	}
+
 	*h = NULL;
 	return (len);
 }
