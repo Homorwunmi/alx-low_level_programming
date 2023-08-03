@@ -20,7 +20,7 @@ listint_t *find_listint_loop(listint_t *head)
 	}
 
 
-	if (second == NULL || second->NULL)
+	if (second == NULL || second->next == NULL)
 		return (NULL);
 
 
