@@ -18,6 +18,7 @@ size_t free_listint_safe(listint_t **h)
 		if (current <= current->next)
 		{
 			temp = current->next;
+			*h = NULL;
 			current->next = NULL;
 			current = temp;
 
@@ -31,7 +32,5 @@ size_t free_listint_safe(listint_t **h)
 		len++;
 	}
 
-
-	*h = NULL;
 	return (len);
 }
